@@ -17,11 +17,14 @@ public class ComputeEngine implements Compute {
     }
 
     public <T> T executeTask(Task<T> t) {
-        return t.execute();
+        System.out.println("Petición recibida");
+        T result = t.execute();
+        System.out.println("Tarea finalizada");
+        return result;
     }
 
     public static void main(String[] args) {
-        String myIP = "localhost"; // <--- PON AQUÍ LA IP DE ESTA MÁQUINA (SERVIDOR)
+        String myIP = "10.22.13.240"; // <--- PON AQUÍ LA IP DE ESTA MÁQUINA (SERVIDOR)
 
         startWebServer(myIP);
         System.setProperty("java.rmi.server.hostname", myIP);
